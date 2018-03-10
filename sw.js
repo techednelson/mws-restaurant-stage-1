@@ -1,3 +1,6 @@
+/**
+ * Install Service Worker
+ */
 self.addEventListener('install', e => {
     console.log('[Service Worker], Installing Service Worker ...', e);
     e.waitUntil(
@@ -17,11 +20,17 @@ self.addEventListener('install', e => {
     );
 });
 
+/**
+ * Activate Service Worker
+ */
 self.addEventListener('activate', e => {
     console.log('[Service Worker], Activating Service Worker ...', e);
     return self.clients.claim();
 });
 
+/**
+ * Fetch event request and cache dynamically
+ */
 self.addEventListener('fetch', e => {
     e.respondWith(
         caches.match(e.request)
