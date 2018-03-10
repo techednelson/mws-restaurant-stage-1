@@ -7,7 +7,6 @@ self.addEventListener('install', e => {
             cache.addAll([
                 '/',
                 '/index.html',
-                '/restaurant.html',
                 '/css/styles.css',
                 '/img/*.jpg',
                 '/js/main.js',
@@ -26,8 +25,19 @@ self.addEventListener('activate', e => {
 self.addEventListener('fetch', e => {
     e.respondWith(
         caches.match(e.request)
-        .then(response=> {
-            return response || fetch(e.request);
+        .then(response => {
+            if(response) {
+                return response;
+            } else {
+                fetch(e.request)
+                .then(res => {
+                    caches.open('dynamic')
+                    .then(cache => {
+                        cache.put(e.request.url, res.clone());
+                        return res;
+                    });
+                });
+            }
         })
     );
 });
