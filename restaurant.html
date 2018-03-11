@@ -66,6 +66,14 @@
   <script type="text/javascript" src="js/restaurant_info.js"></script>
   <!-- Google Maps -->
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRWCIdqZyFFW6_p1wD4uD9LcFzF3zjcS4&libraries=places&callback=initMap"></script>
+  <script>
+    /*Register ServiceWorker*/
+    if('serviceWorker' in navigator) {
+      navigator.serviceWorker
+      .register('/sw.js')
+      .then(() => console.log('service worker registered!'));
+    }
+  </script>
   <!-- End scripts -->
 
 </body>
