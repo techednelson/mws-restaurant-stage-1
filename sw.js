@@ -44,6 +44,9 @@ self.addEventListener('fetch', e => {
                     .then(cache => {
                         cache.put(e.request.url, res.clone());
                         return res;
+                    })
+                    .catch(err => {
+                        //Handling errors
                     });
                 });
             }
