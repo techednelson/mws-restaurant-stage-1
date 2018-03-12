@@ -53,15 +53,11 @@ nav {
   width: 100%;
   height: 80px;
   background-color: #252831;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
+  text-align:center;
 }
 nav h1 {
   margin: auto;
   padding-top: 5px;
-  text-align: center;
 }
 nav h1 a {
   color: #fff;
@@ -229,20 +225,22 @@ nav h1 a {
 /* ====================== max-width: 799px ====================== */
 @media screen and (max-width: 799px) {
   .inside header {
-    position: relative;
-    top: 80px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
   }
   #breadcrumb {
     padding: 10px 40px 16px;
     background-color: #eee;
+    margin: 0;
     width: 100%;
-    position: relative;
-    top: -11px;
+    top: 80px;
     border-bottom: 1px solid #d9d9d9;
   }
   .inside #maincontent {
     position: relative;
-    top: 56px;
+    top: 125px;
   }
   .inside #map-container {
     background-color: #ccc;
@@ -253,7 +251,7 @@ nav h1 a {
   .inside footer {
     bottom: 0;
     position: relative;
-    top: 56px;
+    top: 125px;
     max-width: 100%;
   }
   .outside header {
@@ -322,6 +320,12 @@ nav h1 a {
 
 /* ====================== min-width: 800px ====================== */
 @media screen and (min-width: 800px) {
+  .inside nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
   #breadcrumb {
     position: fixed;
     top: 80px;
