@@ -117,6 +117,9 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
  */
 createReviewHTML = (review) => {
   const li = document.createElement('li');
+  const att = document.createAttribute("role");
+  att.value = 'listitem';
+  li.setAttributeNode(att);
   const container = document.createElement('div');
   const space = document.createElement('br');
   const name = document.createElement('div');
